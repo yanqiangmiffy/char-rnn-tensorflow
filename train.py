@@ -33,7 +33,6 @@ def main(_):
 
     arr = converter.text_to_arr(text)
     g = batch_generator(arr, FLAGS.num_seqs, FLAGS.num_steps)
-    print(converter.vocab_size)
     model = CharRNN(converter.vocab_size,
                     num_seqs=FLAGS.num_seqs,
                     num_steps=FLAGS.num_steps,

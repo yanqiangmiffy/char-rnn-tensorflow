@@ -59,12 +59,11 @@ class CharRNN:
             # 英文：没必要
 
             if self.use_embedding is False:
+                self.lstm_inputs=tf.one_hot(self.inputs,self.num_classes)
+            else:
                 with tf.device("/cpu:0"):
                     embedding=tf.get_variable('embedding',[self.num_classes,self.embedding_size])
                     self.lstm_inputs=tf.nn.embedding_lookup(embedding,self.inputs)
-            else:
-                self.lstm_inputs=tf.one_hot(self.inputs,self.num_classes)
-
     def build_lstm(self):
         """
         创建单个lstm cell并堆叠多层

@@ -34,7 +34,6 @@ class TextConverter(object):
                 self.vocab = pickle.load(in_data)
         else:
             vocab = set(text)
-            print(len(vocab))
             vocab_count = {}
             for word in vocab:
                 vocab_count[word] = 0
